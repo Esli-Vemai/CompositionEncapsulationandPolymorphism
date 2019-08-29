@@ -26,10 +26,16 @@ public class GroceryList {
 
     public void removeItem(int position){
         String removedItem = groceryList.remove(position);
+        groceryList.remove(position);
     }
 
     public String findItem(String findItem){
-        boolean doesExist = groceryList.contains(findItem);
+        int position = groceryList.indexOf(findItem);
+        if (position>=0) {
+            System.out.println("Item Found!!");
+            return groceryList.get(position);
+        }
+        System.out.println("Item not found...");
         return null;
     }
 }
